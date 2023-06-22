@@ -2,6 +2,17 @@
 // the code isn't run until the browser has finished rendering all the elements
 // in the html.
 $(function () {
+  for (var i = 17; i > 0; i--) {
+    var hourClass = "hour-" + i.toString();
+    console.log(hourClass);
+    $(".container-lg").prepend("<div id=" + hourClass + " class='row time-block past'></div>");
+    $("#" + hourClass).prepend("<div class='col-2 col-md-1 hour text-center py-3'></div>");
+    $("div div:nth-child(1)").text(i.toString());
+    $("#" + hourClass).append("<textarea class='col-8 col-md-10 description' rows='3'></textarea>");
+    $("#" + hourClass).text();
+    $("#" + hourClass).append("<button class='btn saveBtn col-2 col-md-1' aria-label='save'>");
+  }
+  $(".saveBtn").prepend("<i class='fas fa-save' aria-hidden='true'></i>");
   // TODO: Add a listener for click events on the save button. This code should
   // use the id in the containing time-block as a key to save the user input in
   // local storage. HINT: What does `this` reference in the click listener
@@ -23,9 +34,16 @@ $(function () {
   //Get todays date & format it for the Scheduler Header
   var todaysDate = dayjs();
   var suffix = getOrdinal(dayjs(todaysDate).format('D'));
-  $('#currentDay').text(dayjs(todaysDate).format('dddd, MMMM D') + suffix);
+
+  var date2 = dayjs().format('YYYY');
+  console.log(date2)
+  var todaysDate = dayjs();
+  var suffix = getOrdinal(dayjs(todaysDate).format('D')) + ",";
+  $('#currentDay').text(dayjs(todaysDate).format('dddd, MMMM D') + suffix + " " + dayjs().format('YYYY'));
+
 
 });
+
 
 function getOrdinal(noToOrdinal) {
   // Determine the ordinal number of a date in a month
@@ -50,4 +68,5 @@ function getOrdinal(noToOrdinal) {
   }
   return ordinalSuffix;
 }
+
 
