@@ -20,9 +20,34 @@ $(function () {
   // attribute of each time-block be used to do this?
   //
   // TODO: Add code to display the current date in the header of the page.
+  //Get todays date & format it for the Scheduler Header
+  var todaysDate = dayjs();
+  var suffix = getOrdinal(dayjs(todaysDate).format('D'));
+  $('#currentDay').text(dayjs(todaysDate).format('dddd, MMMM D') + suffix);
 
-  todaysDate=dayjs();  
-  $('#currentDay').text(dayjs(todaysDate).utc().format('dddd, MMMM Do'));
-  console.log(todaysDate.utc().format());
-  console.log(todaysDate.format());
 });
+
+function getOrdinal(noToOrdinal) {
+  // Determine the ordinal number of a date in a month
+  // Eg: 1st, 2nd, 3rd, 11th, 21st, etc
+  // I wrote my own function because I encountered an error in the dayjs advancedFormat routine
+  switch (parseInt(noToOrdinal)) {
+    case 1:
+    case 21:
+    case 31:
+      ordinalSuffix = "st";
+      break;
+    case 2:
+    case 22:
+      ordinalSuffix = "nd";
+      break;
+    case 3:
+    case 23:
+      ordinalSuffix = "rd";
+      break;
+    default:
+      ordinalSuffix = "th";
+  }
+  return ordinalSuffix;
+}
+
