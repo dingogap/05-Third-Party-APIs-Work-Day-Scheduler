@@ -5,34 +5,23 @@ var pastClass = "past";
 var presentClass = "present";
 var futureClass = "future";
 var dayStart = 9;
-var dayEnd = 17;
+var dayEnd = 20;
 $(function () {
   //Build the Daily Planner
 
   // Get the date
   var dateAsString = dayjs().format("YYYY-MM-DD");
-  // Get the hour in 24 hour format as an integer
-  var currentHour = parseInt(dayjs().format("H"));
+  console.log(dayjs().format("D"));
 
   // build the daily planner, checking the time to assign the class to show past, present & future
   for (var i = dayEnd; i > dayStart - 1; i--) {
     // build the id for the hourly blocks
     var hourId = "hour-" + i.toString();
-    if (i < currentHour) {
-      hourColour = "past";
-    } else if (i > currentHour) {
-      hourColour = "future";
-    } else {
-      hourColour = "present";
-    }
-    hourColour = "";
 
     $(".container-lg").prepend(
       "<div id='" +
-      hourId +
-      "' class='row time-block " +
-      hourColour +
-      "'></div>"
+      hourId +"' class='row time-block'></div>"
+
     );
     $("#" + hourId).append(
       "<div class='col-2 col-md-1 hour text-center py-3'></div>"
@@ -56,10 +45,19 @@ $(function () {
   // Check the time and apply hour block colours
   checkTime();
 
+  $(".saveBtn").on("click", function () {
+    console.log($(this).siblings(".description").val());
+    console.log($(this).parent().attr('id'));
+
+  })
+
   setInterval(function () {
-    var currentMinute = parseInt(dayjs().format("m"));
-    if (currentMinute===0){checkTiime()}
-    console.log(currentMinute);
+    // Checks each minute to see if its the start of a new hour
+    // If so, call checkTime and update the hour block classes
+    var currentMinute = parseInt(dayjs().minute());
+    if (currentMinute === 0) {
+      checkTime()
+    }
   }, 60000
   )
 
@@ -67,7 +65,7 @@ $(function () {
     // Get the current time
     // Check the hour block divs to see if they are for past, present or future
     // Call checkHourClass to ensure the class is correct for the time
-    var currentHour = parseInt(dayjs().format("H"));
+    var currentHour = parseInt(dayjs().hour());
     for (var i = dayStart; i < dayEnd + 1; i++) {
       var hourId = "#hour-" + i.toString();
       if (i < currentHour) {
