@@ -2,17 +2,51 @@
 // the code isn't run until the browser has finished rendering all the elements
 // in the html.
 $(function () {
-  for (var i = 17; i > 0; i--) {
+  //Build the Daily Planner
+
+  // Get the date
+  var dateAsString = dayjs().format("YYYY-MM-DD");
+  // Get the hour in 24 hour format as an integer
+  var currentHour = parseInt(dayjs().format("H"));
+  
+  // build the daily planner, checking the time to assign the class to show past, present & future
+  for (var i = 17; i > 8; i--) {
+    // build the id for the hourly blocks
     var hourClass = "hour-" + i.toString();
-    console.log(hourClass);
-    $(".container-lg").prepend("<div id=" + hourClass + " class='row time-block past'></div>");
-    $("#" + hourClass).prepend("<div class='col-2 col-md-1 hour text-center py-3'></div>");
-    $("div div:nth-child(1)").text(i.toString());
-    $("#" + hourClass).append("<textarea class='col-8 col-md-10 description' rows='3'></textarea>");
-    $("#" + hourClass).text();
-    $("#" + hourClass).append("<button class='btn saveBtn col-2 col-md-1' aria-label='save'>");
+    if (i < currentHour) {
+      hourColour = "past";
+    } else if (i > currentHour) {
+      hourColour = "future";
+    } else {
+      hourColour = "present";
+    }
+
+    $(".container-lg").prepend(
+      "<div id='" +
+      hourClass +
+      "' class='row time-block " +
+      hourColour +
+      "'></div>"
+    );
+    $("#" + hourClass).append(
+      "<div class='col-2 col-md-1 hour text-center py-3'></div>"
+    );
+    // hour as a string
+    hourAsString = i.toString() + ":00";
+    // show the hour in 12 hour format AM/PM
+    $("#" + hourClass + " div").text(
+      dayjs(dateAsString + " " + hourAsString).format("hA")
+    );
+    $("#" + hourClass).append(
+      "<textarea class='col-8 col-md-10 description' rows='3'></textarea>"
+    );
+    $("#" + hourClass).append(
+      "<button class='btn saveBtn col-2 col-md-1' aria-label='save'>"
+    );
   }
+  // Add the save icon to all buttons with the saveBtn class
   $(".saveBtn").prepend("<i class='fas fa-save' aria-hidden='true'></i>");
+
   // TODO: Add a listener for click events on the save button. This code should
   // use the id in the containing time-block as a key to save the user input in
   // local storage. HINT: What does `this` reference in the click listener
@@ -32,18 +66,18 @@ $(function () {
   //
   // TODO: Add code to display the current date in the header of the page.
   //Get todays date & format it for the Scheduler Header
+
+  // Get todays date
   var todaysDate = dayjs();
-  var suffix = getOrdinal(dayjs(todaysDate).format('D'));
-
-  var date2 = dayjs().format('YYYY');
-  console.log(date2)
-  var todaysDate = dayjs();
-  var suffix = getOrdinal(dayjs(todaysDate).format('D')) + ",";
-  $('#currentDay').text(dayjs(todaysDate).format('dddd, MMMM D') + suffix + " " + dayjs().format('YYYY'));
-
-
+  // Get the Ordinal Suffix
+  var suffix = getOrdinal(dayjs(todaysDate).format("D")) + ",";
+  $("#currentDay").text(
+    dayjs(todaysDate).format("dddd, MMMM D") +
+    suffix +
+    " " +
+    dayjs().format("YYYY")
+  );
 });
-
 
 function getOrdinal(noToOrdinal) {
   // Determine the ordinal number of a date in a month
@@ -68,5 +102,3 @@ function getOrdinal(noToOrdinal) {
   }
   return ordinalSuffix;
 }
-
-

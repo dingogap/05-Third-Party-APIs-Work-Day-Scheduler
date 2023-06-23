@@ -13,4 +13,6 @@
 ## Process
 1. Created folder structure to hold assets
 2. Created CHANGELOG.md
-3. Wrote code to add day to header
+3. Added code to add day to header
+4. Added code to build the Daily Planner
+5. Added time displays to the hourly blocks
