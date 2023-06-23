@@ -16,3 +16,4 @@
 3. Added code to add day to header
 4. Added code to build the Daily Planner
 5. Added time displays to the hourly blocks
+6. Add Interval Timer to update hour blocks
