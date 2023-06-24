@@ -28,7 +28,6 @@ Click the link to visit the deployed website: [Work Day Scheduler][def1].
 Work Day Scheduler data is saved in Local Storage here:
 ![Local Storage - schedule object](assets/images/localStorage.png)
 
-
 ## Navigation
 Navigation is very simple:
 1. Add an Entry:
@@ -51,12 +50,17 @@ Navigation is very simple:
 7. [MDM Web Docs][def3] setInterval() global function
 8. [MDM Web Docs][def4] Element:prepend() method
 9. [MDM Web Docs][def5] Array.prototype.sort()
+10. [jQuery ][def6] jQuery API Documentation
+11. [Day.js][def7] Day.js Documentation
+
 
 [def1]: https://dingogap.github.io/05-Third-Party-APIs-Work-Day-Scheduler/
 [def2]: https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/addEventListenerl
 [def3]: https://developer.mozilla.org/en-US/docs/Web/API/setInterval
 [def4]: https://developer.mozilla.org/en-US/docs/Web/API/Element/prepend
 [def5]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/sort
+[def6]: https://api.jquery.com/on/
+[def7]: https://day.js.org/en/
 
 
 
