@@ -21,16 +21,17 @@ $(function () {
   }
 
   //Build the Daily Planner
-
   // Get the date
   var dateAsString = dayjs().format("YYYY-MM-DD");
+  var currentHour = dayjs().hour();
   // Build each Time Block
   for (var i = dayEnd; i > dayStart - 1; i--) {
 
     // Create the Time Block
     var hourId = "hour-" + i.toString();
     $(".container-lg").prepend("<div id='" + hourId + "' class='row time-block'></div>");
-
+    // Add the time colour class
+    $("#" +hourId).addClass(colourTimeBlock(i, currentHour));
     $("#" + hourId).append("<div class='col-2 col-md-1 hour text-center py-3'></div>");
     hourAsString = i.toString() + ":00";
     // show the hour in 12 hour format AM/PM
@@ -46,9 +47,6 @@ $(function () {
   // Add the Save Icon to all elements with the saveBtn class
   $(".saveBtn").prepend("<i class='fas fa-save' aria-hidden='true'></i>");
 
-  // Check the time and apply hour block colours
-  checkTime();
-
   // Event listener for Save Button 
   $(".saveBtn").on("click", function () {
     meetingTime = parseInt($(this).parent().attr("id").split("-")[1]);
@@ -58,13 +56,20 @@ $(function () {
     localStorage.setItem(schedule, JSON.stringify(planner));
   });
 
-  // 
+  // Set an interval timer to handle hour changes
   setInterval(function () {
     // Checks each minute to see if its the start of a new hour
     // If so, call checkTime and update the hour block classes
     var currentMinute = parseInt(dayjs().minute());
     if (currentMinute === 0) {
-      checkTime();
+      var newHour = dayjs().hour();
+      var oldHour = currentHour - 1;
+      //build new hourIDs
+      newHourId = "hour-" + newHour.toString();
+      oldHourId="hour-" + oldHour.toString();
+      // Change the colour classes
+      $("#" +newHourId).addClass(presentClass).removeClass(futureClass);
+      $("#" +oldHourId).addClass(pastClass).removeClass(presentClass);
     }
   }, 60000);
 
@@ -79,6 +84,38 @@ $(function () {
     dayjs().format("YYYY")
   );
 });
+
+function colourTimeBlock(i, currentHour) {
+// Get the colour class for past, present or future
+  if (i < currentHour) {
+    hourClass = pastClass;
+  } else if (i > currentHour) {
+    hourClass = futureClass;
+  } else {
+    hourClass = presentClass;
+  }
+  return hourClass;
+}
+
+function checkTime() {
+  // Get the current time
+  // Check the hour block divs to see if they are for past, present or future
+  // Call checkHourClass to ensure the class is correct for the time
+  var currentHour = parseInt(dayjs().hour());
+  for (var i = dayStart; i < dayEnd + 1; i++) {
+    var hourId = "#hour-" + i.toString();
+    if (i < currentHour) {
+      hourClass = pastClass;
+      checkHourClass(hourId, hourClass);
+    } else if (i > currentHour) {
+      hourClass = futureClass;
+      checkHourClass(hourId, hourClass);
+    } else {
+      hourClass = presentClass;
+      checkHourClass(hourId, hourClass);
+    }
+  }
+}
 
 function getOrdinal(noToOrdinal) {
   // Determine the ordinal number of a date in a month
@@ -104,57 +141,8 @@ function getOrdinal(noToOrdinal) {
   return ordinalSuffix;
 }
 
-function checkHourClass(hourId, hourClass) {
-  // Update the colour class based on time - past, present or future
-  switch (hourClass) {
-    case pastClass:
-      if ($(hourId).hasClass(presentClass)) {
-        $(hourId).removeClass(presentClass);
-      } else {
-        $(hourId).removeClass(futureClass);
-      }
-      break;
-    case presentClass:
-      if ($(hourId).hasClass(pastClass)) {
-        $(hourId).removeClass(pastClass);
-      } else {
-        $(hourId).removeClass(futureClass);
-      }
-      break;
-    case futureClass:
-      if ($(hourId).hasClass(pastClass)) {
-        $(hourId).removeClass(pastClass);
-      } else {
-        $(hourId).removeClass(presentClass);
-      }
-      break;
-  }
-  if (!$(hourId).hasClass(hourClass)) {
-    $(hourId).addClass(hourClass);
-  }
-}
-
 function readPlanner() {
   // Read Planner Data from local storage
   return JSON.parse(localStorage.getItem(schedule));
 }
 
-function checkTime() {
-  // Get the current time
-  // Check the hour block divs to see if they are for past, present or future
-  // Call checkHourClass to ensure the class is correct for the time
-  var currentHour = parseInt(dayjs().hour());
-  for (var i = dayStart; i < dayEnd + 1; i++) {
-    var hourId = "#hour-" + i.toString();
-    if (i < currentHour) {
-      hourClass = pastClass;
-      checkHourClass(hourId, hourClass);
-    } else if (i > currentHour) {
-      hourClass = futureClass;
-      checkHourClass(hourId, hourClass);
-    } else {
-      hourClass = presentClass;
-      checkHourClass(hourId, hourClass);
-    }
-  }
-}

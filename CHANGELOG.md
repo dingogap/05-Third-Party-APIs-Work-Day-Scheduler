@@ -20,4 +20,4 @@
 7. Added Event Listener to detect Save Button clicks and get the data to be saved for the event
 8. Added code to write to & read from local storage and update the Work Day Planner
 9. Added screenshot of the scheduler to the images folder
- 
+10. Simplified the colour class to only update Time Blocks that actually need setting or changing
