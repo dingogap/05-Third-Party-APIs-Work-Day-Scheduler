@@ -3,7 +3,7 @@
 ## Description
 The Work Day Scheduler is a Daily Planner which allows the user to schedule items in any of the 1 hour Time Blocks in the current work day.
 
-While not part of a comprehensive calendaring solution the Work Day Scheduler provides continuity by storing scheduled items in local storage so they can be seen next time the Scheduler is loaded.
+While not part of a comprehensive calendaring solution the Work Day Scheduler provides continuity by storing scheduled items in Local Storage so they can be seen next time the Scheduler is loaded.
 
 Current Time Blocks are coloured Pink, Time Blocks from earlier in the day are coloured Grey and Time Blocks from later in the day are coloured Green.
 
@@ -20,8 +20,12 @@ Click the link to visit the deployed website: [Work Day Scheduler][def1].
 
 ## Data
   * Day Scheduler Hours are stored as global variables in the scrip.js file. Changing dayStart or dayEnd times will increase or reduce the number of Tiime Blocks in the scheduler
-  * Scheduler data is stored in local storage in a key named 'schedule' so it is preserved between browser sessions or if the browser is refreshed
+  * Scheduler data is stored in Local Storage in a key named 'schedule' so it is preserved between browser sessions or if the browser is refreshed
   * Scheduler data is stored in the planner object in the browser when the scheduler is running
+
+Work Day Scheduler data is saved in Local Storage here:
+![Local Storage - schedule object](assets/images/localStorage.png)
+
 
 ## Navigation
 Navigation is very simple:
@@ -32,7 +36,7 @@ Navigation is very simple:
 2. Delete an Entry
   * click on the the Time Block to be cleared
   * delete the information
-  * click on teh floppy disk icon to update the entry
+  * click on the floppy disk icon to update the entry
 
   ## Changelog
   The development is history is summaries in the [Changelog](./CHANGELOG.md)
@@ -50,7 +54,7 @@ Navigation is very simple:
 [def2]: https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/addEventListenerl
 [def3]: https://developer.mozilla.org/en-US/docs/Web/API/setInterval
 [def4]: https://developer.mozilla.org/en-US/docs/Web/API/Element/prepend
-[def5]:https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/sort
+[def5]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/sort
 
 
 
