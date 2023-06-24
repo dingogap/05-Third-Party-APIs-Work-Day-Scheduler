@@ -21,3 +21,4 @@
 8. Added code to write to & read from local storage and update the Work Day Planner
 9. Added screenshot of the scheduler to the images folder
 10. Simplified the colour class to only update Time Blocks that actually need setting or changing
+11. Corrected code that created oldHOurId 

@@ -63,7 +63,7 @@ $(function () {
     var currentMinute = parseInt(dayjs().minute());
     if (currentMinute === 0) {
       var newHour = dayjs().hour();
-      var oldHour = currentHour - 1;
+      var oldHour = newHour - 1;
       //build new hourIDs
       newHourId = "hour-" + newHour.toString();
       oldHourId="hour-" + oldHour.toString();
