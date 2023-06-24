@@ -16,6 +16,8 @@
 3. Added code to add day to header
 4. Added code to build the Work Day Planner
 5. Added time displays to the hourly blocks
-6. Added Interval Timer to update hour blocks every hour
+6. Added Interval Timer to update hour block colours every hour
 7. Added Event Listener to detect Save Button clicks and get the data to be saved for the event
 8. Added code to write to & read from local storage and update the Work Day Planner
+9. Added screenshot of the scheduler to the images folder
+ 
