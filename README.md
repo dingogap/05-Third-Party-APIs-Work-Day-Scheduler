@@ -7,6 +7,8 @@ While not part of a comprehensive calendaring solution the Work Day Scheduler pr
 
 Current Time Blocks are coloured Pink, Time Blocks from earlier in the day are coloured Grey and Time Blocks from later in the day are coloured Green.
 
+![Third Party API Work Day Schedulet](assets/images/workDayScheduler.png)
+
 In my implementation:
 
 1. JavaScript is used:
