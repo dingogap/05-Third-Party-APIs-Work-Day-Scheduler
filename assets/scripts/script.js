@@ -1,10 +1,17 @@
-
 // Global variables
+
+// Start & End of Day - change these variables to increase or reduce the length of the scheduled day
+var dayStart = 9;
+var dayEnd = 17;
+
+// Class Names used to display the colour for past, present and future Time Blocks
 var pastClass = "past";
 var presentClass = "present";
 var futureClass = "future";
-var dayStart = 9;
-var dayEnd = 17;
+
+// Scheduler variables
+// planner is the object holding Time Blocks while the scheduler is in use
+// schedule is the local storage key to hold the planner data
 var planner;
 var schedule = "schedule";
 
