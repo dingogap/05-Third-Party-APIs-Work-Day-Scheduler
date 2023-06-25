@@ -14,8 +14,9 @@ In my implementation:
 1. JavaScript is used:
     * to build the Time Block Structures so the scheduled hours can be changed easily
     * so schedule data and colour classes can be applied as the schedule is built
-2. items can be deleted by clearing the text from the Time Block and clicking the Save Button
-3. the appropriate 'present' and future' colour classes will update on the hour change while the Scheduler is being used
+2. items can be added by entering the details in the appropriate Time Block and clicking the Save Button
+3. items can be deleted by clearing the text from the Time Block and clicking the Save Button
+4. the appropriate 'present' and future' colour classes will update on the hour change while the Scheduler is being used
 
 ## Third Party APIs Work Day Scheduler Link
 Click the link to visit the deployed website: [Work Day Scheduler][def1].
