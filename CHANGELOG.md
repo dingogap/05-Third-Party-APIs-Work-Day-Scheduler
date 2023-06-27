@@ -25,3 +25,4 @@
 12. Updated README.md
 13. Renamed Repository & updated links in README.md
 14. Commented out the unused checkTime function
+15. Removed unused checkTime function and reset dayStart to 9

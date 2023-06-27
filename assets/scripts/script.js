@@ -1,7 +1,7 @@
 // Global variables
 
 // Start & End of Day - change these variables to increase or reduce the length of the scheduled day
-var dayStart = 7;
+var dayStart = 9;
 var dayEnd = 17;
 
 // Class Names used to display the colour for past, present and future Time Blocks
@@ -103,26 +103,6 @@ function colourTimeBlock(i, currentHour) {
   }
   return hourClass;
 }
-
-/* function checkTime() {
-  // Get the current time
-  // Check the hour block divs to see if they are for past, present or future
-  // Call checkHourClass to ensure the class is correct for the time
-  var currentHour = parseInt(dayjs().hour());
-  for (var i = dayStart; i < dayEnd + 1; i++) {
-    var hourId = "#hour-" + i.toString();
-    if (i < currentHour) {
-      hourClass = pastClass;
-      checkHourClass(hourId, hourClass);
-    } else if (i > currentHour) {
-      hourClass = futureClass;
-      checkHourClass(hourId, hourClass);
-    } else {
-      hourClass = presentClass;
-      checkHourClass(hourId, hourClass);
-    }
-  }
-} */
 
 function getOrdinal(noToOrdinal) {
   // Determine the ordinal number of a date in a month
