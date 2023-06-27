@@ -1,7 +1,7 @@
 // Global variables
 
 // Start & End of Day - change these variables to increase or reduce the length of the scheduled day
-var dayStart = 5;
+var dayStart = 7;
 var dayEnd = 17;
 
 // Class Names used to display the colour for past, present and future Time Blocks
