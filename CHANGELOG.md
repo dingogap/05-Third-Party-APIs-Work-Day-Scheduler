@@ -22,4 +22,6 @@
 9. Added screenshot of the scheduler to the images folder
 10. Simplified the colour class to only update Time Blocks that actually need setting or changing
 11. Corrected code that created oldHOurId
-12. Updated README.md 
+12. Updated README.md
+13. Renamed Repository & updated links in README.md
+14. Commented out the unused checkTime function

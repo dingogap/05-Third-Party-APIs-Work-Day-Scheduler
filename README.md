@@ -55,7 +55,7 @@ Navigation is very simple:
 11. [Day.js][def7] Day.js Documentation
 
 
-[def1]: https://dingogap.github.io/05-Third-Party-APIs-Work-Day-Scheduler/
+[def1]: https://dingogap.github.io/My-Work-Day-Planner/
 [def2]: https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/addEventListenerl
 [def3]: https://developer.mozilla.org/en-US/docs/Web/API/setInterval
 [def4]: https://developer.mozilla.org/en-US/docs/Web/API/Element/prepend
