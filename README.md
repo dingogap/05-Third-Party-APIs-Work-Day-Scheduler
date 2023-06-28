@@ -7,6 +7,9 @@ While not part of a comprehensive calendaring solution the Work Day Scheduler pr
 
 Current Time Blocks are coloured Pink, Time Blocks from earlier in the day are coloured Grey and Time Blocks from later in the day are coloured Green.
 
+## Third Party APIs Work Day Scheduler Link
+Click the link to visit the deployed website: [Work Day Scheduler][def1].
+
 ![Third Party API Work Day Schedulet](assets/images/workDayScheduler.png)
 
 In my implementation:
@@ -17,9 +20,6 @@ In my implementation:
 2. items can be added by entering the details in the appropriate Time Block and clicking the Save Button
 3. items can be deleted by clearing the text from the Time Block and clicking the Save Button
 4. the appropriate 'present' and future' colour classes will update on the hour change while the Scheduler is being used
-
-## Third Party APIs Work Day Scheduler Link
-Click the link to visit the deployed website: [Work Day Scheduler][def1].
 
 ## Data
   * Day Scheduler Hours are stored as global variables in the scrip.js file. Changing dayStart or dayEnd times will increase or reduce the number of Tiime Blocks in the scheduler
@@ -55,7 +55,7 @@ Navigation is very simple:
 11. [Day.js][def7] Day.js Documentation
 
 
-[def1]: https://dingogap.github.io/My-Work-Day-Planner/
+[def1]: https://dingogap.github.io/My-Work-Day-Scheduler/
 [def2]: https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/addEventListenerl
 [def3]: https://developer.mozilla.org/en-US/docs/Web/API/setInterval
 [def4]: https://developer.mozilla.org/en-US/docs/Web/API/Element/prepend
